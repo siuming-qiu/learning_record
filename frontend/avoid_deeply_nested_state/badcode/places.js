@@ -1,3 +1,22 @@
+export const flatten = (obj) => {
+  const newObj = {}
+  const queue = []
+  queue.push(obj)
+  while(queue.length) {
+    const currentObj = queue.shift()
+    const childIds = []
+    for(const child of currentObj.childPlaces) {
+      childIds.push(child.id)
+      queue.push(child)
+    }
+    newObj[currentObj['id']] = {
+      id: currentObj['id'],
+      title: currentObj['title'],
+      childIds
+    }
+  }
+  return newObj
+}
 export const initialTravelPlan = {
     id: 0,
     title: '(Root)',
@@ -199,4 +218,4 @@ export const initialTravelPlan = {
       }]
     }]
   };
-  
+  console.log(JSON.stringify(flatten(initialTravelPlan)))
