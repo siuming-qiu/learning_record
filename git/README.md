@@ -27,3 +27,10 @@ git reset --hard hash // 将 hash 换成要恢复的历史记录的 hash 值
 git revert // 之前的提交仍会保留在 git log 中，而此次撤销会做为一次新的提交。
 git revert -m // 用于对 merge 节点的操作，-m 指定具体某个提交点
 ```
+### 2. 合并代码/commit
++ git rebase (最好只在自己的分支上rebase)
+  
+```
+git rebase -i head~N // N表示把自己的分支上相对于checkout新增的提交，全部rebase成一个commit，这样就是一个干净的commit
+```
+
