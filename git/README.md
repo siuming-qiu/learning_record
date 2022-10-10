@@ -46,3 +46,10 @@ git fetch --all
 git reset --hard origin/master (这里master要修改为对应的分支名)
 git pull
 ```
+### 5. git单个文件回滚
+```
+git log main.js // 首先要找到要回滚的版本的hash值，
+git checkout hash main.js // 利用 hash 回滚特定文件
+git commit -m '回滚main.js' 回滚后需要提交
+
+```
